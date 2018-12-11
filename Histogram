@@ -15,7 +15,7 @@ public class Histogram {
 		int i = 0;
 		ArrayList<Integer> array = new ArrayList<>();
 		HashMap<Integer, Integer> map = new HashMap<>();
-		while (i < 5) {
+		while (i < 1000) {
 			int random = (int)(10*Math.random());
 			if (random != 0) {
 				array.add(random);
@@ -24,25 +24,28 @@ public class Histogram {
 			}
 			i++;
 		}
-		System.out.println(array);
+//		System.out.println(array);
 		
 		for (Integer num : array) {
 			Integer count = map.getOrDefault(num, 0);
-			if (!map.containsKey(num)) {
-				count++;
-				map.put(num, count);
-			} else {
-				count++;
-				map.put(num, count);
-			}
+			count++;
+			map.put(num, count);
 		}
 		System.out.println(map);
 		
-		Set<Integer> keys = map.keySet();
-		Collection<Integer> values = map.values();
-		System.out.println(keys);
-		System.out.println(values);
-
+		Set<Integer> set = map.keySet();
+		Collection<Integer> count = map.values();
+		System.out.print("Number:");
+		for (Integer keys : set) {
+			System.out.print(keys + "\t");
+		}
+		
+		System.out.println();
+		System.out.print("Count: ");
+		for (Integer values : count) {
+			System.out.print(values + "\t");
+		}
+		
 	}
 
 }
