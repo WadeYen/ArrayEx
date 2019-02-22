@@ -1,0 +1,47 @@
+package array;
+
+/* a9.給定數列,-7,3,5,10,18,22,31,38,41,49,
+ * (a) 請以亂數,自數列中,抽取10個數字,抽取過程可重複抽取;
+ * (b) 請以亂數,自數列中,抽取10個數字,抽取過程不可重複抽取; */
+
+public class A9 {
+
+	public static void main(String[] args) {
+		int [] numSeq = {-7,3,5,10,18,22,31,38,41,49,};
+		Repeat(numSeq);
+		System.out.println();
+		NoRepeat(numSeq);
+		
+		
+	}
+	
+	public static void Repeat (int [] numSeq) {
+		for (int i = 0; i < 10; i++) {
+			int ran = (int)(10*Math.random());
+			int num = numSeq[ran];
+			System.out.print(num + ", ");
+		}
+		
+	}
+	
+	public static void NoRepeat (int [] numSeq){
+		boolean [] checkNum = new boolean[numSeq.length];		
+		for (int i = 0; i < numSeq.length; i++) {
+			
+			int ran = (int)(10*Math.random());
+			int num = numSeq[ran];
+			
+			if (checkNum[ran]==false) {
+				checkNum[ran]=true;
+			} else {
+				ran = (int)(10*Math.random());
+				num = numSeq[ran];
+				
+			}
+			System.out.print(num + ",");
+			
+		}
+		
+	}
+
+}
